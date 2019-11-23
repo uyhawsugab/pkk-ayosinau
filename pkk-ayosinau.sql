@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Nov 2019 pada 06.45
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.3.1
+-- Waktu pembuatan: 23 Nov 2019 pada 09.01
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +25,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `guru`
+--
+
+CREATE TABLE `guru` (
+  `id_guru` int(50) NOT NULL,
+  `nama_guru` varchar(255) NOT NULL,
+  `email_guru` varchar(255) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `id_mapel` int(11) NOT NULL,
+  `id_level` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `guru`
+--
+
+INSERT INTO `guru` (`id_guru`, `nama_guru`, `email_guru`, `username`, `password`, `id_mapel`, `id_level`) VALUES
+(2, 'Guru Pengajar 1', '', 'guru1', 'guru1', 1, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `jenis_modul`
 --
 
@@ -33,16 +56,13 @@ CREATE TABLE `jenis_modul` (
   `jenis_modul` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Struktur dari tabel `kategori_modul`
+-- Dumping data untuk tabel `jenis_modul`
 --
 
-CREATE TABLE `kategori_modul` (
-  `id_kategori` int(11) NOT NULL,
-  `nama_kategori` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `jenis_modul` (`id_jenis_modul`, `jenis_modul`) VALUES
+(1, 'berbayar'),
+(2, 'gratis');
 
 -- --------------------------------------------------------
 
@@ -54,6 +74,35 @@ CREATE TABLE `level` (
   `id_level` int(11) NOT NULL,
   `nama_level` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `level`
+--
+
+INSERT INTO `level` (`id_level`, `nama_level`) VALUES
+(1, 'user'),
+(2, 'guru');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `mapel`
+--
+
+CREATE TABLE `mapel` (
+  `id_mapel` int(11) NOT NULL,
+  `nama_mapel` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `mapel`
+--
+
+INSERT INTO `mapel` (`id_mapel`, `nama_mapel`) VALUES
+(1, 'Matematika'),
+(2, 'Bahasa Indonesia'),
+(3, 'Bahasa Inggris'),
+(4, 'Lain - Lain');
 
 -- --------------------------------------------------------
 
@@ -69,8 +118,15 @@ CREATE TABLE `modul` (
   `status` varchar(255) NOT NULL,
   `stok` int(11) NOT NULL,
   `id_jenis_modul` int(11) NOT NULL,
-  `id_kategori_modul` int(11) NOT NULL
+  `id_mapel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `modul`
+--
+
+INSERT INTO `modul` (`id_modul`, `nama_modul`, `harga`, `gambar`, `status`, `stok`, `id_jenis_modul`, `id_mapel`) VALUES
+(2, 'matrikd', '', '', '', 0, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -81,7 +137,7 @@ CREATE TABLE `modul` (
 CREATE TABLE `nota` (
   `id_nota` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `bukti` varchar(255) NOT NULL,
   `grandtotal` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -121,16 +177,18 @@ CREATE TABLE `user` (
 --
 
 --
+-- Indeks untuk tabel `guru`
+--
+ALTER TABLE `guru`
+  ADD PRIMARY KEY (`id_guru`),
+  ADD KEY `id_level` (`id_level`),
+  ADD KEY `id_mapel` (`id_mapel`);
+
+--
 -- Indeks untuk tabel `jenis_modul`
 --
 ALTER TABLE `jenis_modul`
   ADD PRIMARY KEY (`id_jenis_modul`);
-
---
--- Indeks untuk tabel `kategori_modul`
---
-ALTER TABLE `kategori_modul`
-  ADD PRIMARY KEY (`id_kategori`);
 
 --
 -- Indeks untuk tabel `level`
@@ -139,12 +197,18 @@ ALTER TABLE `level`
   ADD PRIMARY KEY (`id_level`);
 
 --
+-- Indeks untuk tabel `mapel`
+--
+ALTER TABLE `mapel`
+  ADD PRIMARY KEY (`id_mapel`);
+
+--
 -- Indeks untuk tabel `modul`
 --
 ALTER TABLE `modul`
   ADD PRIMARY KEY (`id_modul`),
   ADD KEY `id_jenis_modul` (`id_jenis_modul`),
-  ADD KEY `id_kategori_modul` (`id_kategori_modul`);
+  ADD KEY `id_mapel` (`id_mapel`);
 
 --
 -- Indeks untuk tabel `nota`
@@ -173,28 +237,34 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `guru`
+--
+ALTER TABLE `guru`
+  MODIFY `id_guru` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `jenis_modul`
 --
 ALTER TABLE `jenis_modul`
-  MODIFY `id_jenis_modul` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `kategori_modul`
---
-ALTER TABLE `kategori_modul`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_jenis_modul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `level`
 --
 ALTER TABLE `level`
-  MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `mapel`
+--
+ALTER TABLE `mapel`
+  MODIFY `id_mapel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `modul`
 --
 ALTER TABLE `modul`
-  MODIFY `id_modul` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_modul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `nota`
@@ -219,11 +289,18 @@ ALTER TABLE `user`
 --
 
 --
+-- Ketidakleluasaan untuk tabel `guru`
+--
+ALTER TABLE `guru`
+  ADD CONSTRAINT `guru_ibfk_1` FOREIGN KEY (`id_level`) REFERENCES `level` (`id_level`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `guru_ibfk_2` FOREIGN KEY (`id_mapel`) REFERENCES `mapel` (`id_mapel`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Ketidakleluasaan untuk tabel `modul`
 --
 ALTER TABLE `modul`
   ADD CONSTRAINT `modul_ibfk_1` FOREIGN KEY (`id_jenis_modul`) REFERENCES `jenis_modul` (`id_jenis_modul`),
-  ADD CONSTRAINT `modul_ibfk_2` FOREIGN KEY (`id_kategori_modul`) REFERENCES `kategori_modul` (`id_kategori`);
+  ADD CONSTRAINT `modul_ibfk_2` FOREIGN KEY (`id_mapel`) REFERENCES `mapel` (`id_mapel`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `nota`

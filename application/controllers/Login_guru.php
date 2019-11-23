@@ -20,6 +20,7 @@ class Login_guru extends CI_Controller {
 					'username' => $cek['username'],
 					'nama_guru' => $cek['nama_guru'],
 					'id_level' => $cek['id_level'],
+					'id_mapel' => $cek['id_mapel'],
 					'logged' => true
 				];
 				$this->session->set_userdata($data);
