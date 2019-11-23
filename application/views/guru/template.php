@@ -5,7 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Guru Pengajar</title>
+	<title>Guru Pengajar</title>
+	
     <link rel="icon" href="<?= base_url()?>assets/img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url()?>assets/css/bootstrap.min.css">
@@ -52,7 +53,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="single-blog.html">Setting</a>
-                                        <a class="dropdown-item" href="<?= base_url()?>Login_guru/logout">logout</a>
+                                        <a class="dropdown-item" href="<?= base_url()?>loginUser/logout">logout</a>
                                     </div>
                                 </li>
                                 <li class="d-none d-lg-block">

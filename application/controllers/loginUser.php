@@ -39,6 +39,13 @@ class loginUser extends CI_Controller {
 
 			$this->session->set_userdata($data);
 			$data['status'] = 1;
+			if ($this->session->userdata('id_level') == 1) {
+				$data['id_level'] = 1;
+			}elseif ($this->session->userdata('id_level') == 2) {
+				$data['id_level'] = 2;
+			}else {
+				$data['id_level'] = 3;
+			}
 			echo json_encode($data);
 		}else {
 			$data['status'] = 0;
@@ -64,7 +71,7 @@ class loginUser extends CI_Controller {
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect(base_url('index.php/auth/login'), 'refresh')
+		redirect('loginUser', 'refresh');
 	}
 
 }

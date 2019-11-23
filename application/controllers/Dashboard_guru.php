@@ -5,8 +5,8 @@ class Dashboard_guru extends CI_Controller {
 
 	public function index()
 	{
-		$data['konten']="v_dashboard_guru";
-		$this->load->view('Template_guru', $data);
+		$data['konten']="guru/homepage";
+		$this->load->view('guru/template', $data);
 	}
 	public function tambah_modul()
 	{
