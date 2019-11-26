@@ -38,6 +38,35 @@ class getModul extends CI_Model {
 		return $this->db->insert('nota', $data);
 	}
 
+	public function getLastNota()
+	{
+		$dataNota = $this->db->where('id_user', $this->session->userdata('id_user'))
+		->order_by('id_nota', 'desc')
+		->limit('1')
+		->get('nota')->row();
+
+
+		return $dataNota;
+	}
+
+	public function updateBuktiTransfer()
+	{
+		$data = array(
+			'bukti' => $this->upload->data('file_name')
+		);
+
+		return $this->db->where('id_nota', $this->input->post('id_nota')->update('nota', $data));
+	}
+
+	public function updateTotalHarga($id)
+	{
+		$data = array(
+			'grandtotal' => $this->cart->total()
+		);
+
+		return $this->db->where('id_nota', $id)->update('nota', $data);
+	}
+
 }
 
 /* End of file getModul.php */

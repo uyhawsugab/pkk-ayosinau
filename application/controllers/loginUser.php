@@ -27,7 +27,7 @@ class loginUser extends CI_Controller {
 		if ($login->num_rows()>0) {
 			$dataUser = $login->row();
 			$data = array(
-				'id' => $dataUser->id_user,
+				'id_user' => $dataUser->id_user,
 				'username' => $dataUser->username,
 				'email' => $dataUser->email,
 				'alamat' => $dataUser->alamat,
