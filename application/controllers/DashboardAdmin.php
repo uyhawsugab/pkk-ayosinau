@@ -7,7 +7,8 @@ class DashboardAdmin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin/homepage');
+		$data['konten'] = 'admin/homepage';
+		$this->load->view('admin/template', $data);
 		
 	}
 

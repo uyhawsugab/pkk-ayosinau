@@ -10,7 +10,7 @@ class Dashboard_guru extends CI_Controller {
 	}
 	public function tambah_modul()
 	{
-		$config['upload_path'] = './assets/gambar_modul';
+		$config['upload_path'] = './assets/uploads/modul';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		$config['max_size']  = '100000000000000';
 		$config['max_width']  = '102400000000000';
