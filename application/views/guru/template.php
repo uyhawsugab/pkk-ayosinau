@@ -5,9 +5,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Guru Pengajar</title>
+	<title>Dashboard Guru</title>
 	
-    <link rel="icon" href="<?= base_url()?>assets/img/favicon.png">
+    <link rel="icon" href="<?= base_url()?>assets/img/logoicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url()?>assets/css/bootstrap.min.css">
     <!-- animate CSS -->
@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="<?= base_url()?>assets/css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="<?= base_url()?>assets/css/style.css">
+
+    <!-- jquery -->
+    <script src="<?= base_url()?>assets/js/jquery-1.12.1.min.js"></script>
 </head>
 
 <body>
@@ -91,8 +94,7 @@
    
 
     <!-- jquery plugins here-->
-    <!-- jquery -->
-    <script src="<?= base_url()?>assets/js/jquery-1.12.1.min.js"></script>
+    
     <!-- popper js -->
     <script src="<?= base_url()?>assets/js/popper.min.js"></script>
     <!-- bootstrap js -->

@@ -21,6 +21,7 @@ class AuthLogin extends CI_Model {
 			'username' => $this->input->post('username'),
 			'password' => md5($this->input->post('password')),
 			'nama' => $this->input->post('nama'),
+			'email' => $this->input->post('email'),
 			'alamat' => $this->input->post('alamat'),
 			'notelp' => $this->input->post('notelp'),
 			'id_level' => $this->input->post('id_level')

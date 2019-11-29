@@ -3,22 +3,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard_guru extends CI_Controller {
 
+	
+	public function __construct()
+	{
+		parent::__construct();
+		
+		$this->load->model('guru/M_Dashboard_guru','mdg');
+		
+	}
+	
 	public function index()
 	{
-		$data['konten']="guru/homepage";
-		$this->load->view('guru/template', $data);
+		if ($this->session->userdata('login')==true) 
+		{
+			$data['konten']="guru/homepage_guru";
+			$this->load->view('guru/template', $data);
+		} 
+		else 
+		{
+			$this->session->set_flashdata('pesan', '<div class="alert alert-warning">Anda belum login</div>');
+			redirect('loginUser/index','refresh');
+			
+		}
+		
+		
 	}
 	public function tambah_modul()
 	{
-		$config['upload_path'] = './assets/gambar_modul';
-		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$config['upload_path'] = './assets/file_modul/';
+		$config['allowed_types'] = 'pdf|docx|ppt';
 		$config['max_size']  = '100000000000000';
 		$config['max_width']  = '102400000000000';
 		$config['max_height']  = '76800000000000000';
 		
 		$this->load->library('upload', $config);
 		
-		if ( ! $this->upload->do_upload('gambar'))
+		if ( ! $this->upload->do_upload('file_modul'))
 		{
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger">Gagal Tambah. Mungkin ada yang salah</div>');
 			redirect('Dashboard_guru/index','refresh');
@@ -26,16 +46,80 @@ class Dashboard_guru extends CI_Controller {
 		else
 		{
 			$data = array(
-						'gambar' => $this->upload->data('file_name'),
-						'nama_modul' => $this->input->post('nama_modul'),
+						'file_modul' 		=> $this->upload->data('file_name'),
+						'nama_modul' 	=> $this->input->post('nama_modul'),
+						'harga' 		=> "gratis",
 						'id_jenis_modul' => 2,
-						'id_mapel' => $this->session->userdata('id_mapel')
+						'id_mapel' 		=> $this->session->userdata('id_mapel')
 						);
 
 			$this->db->insert('modul', $data);
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success">Berhasil Tambah Data Modul</div>');
 			redirect('Dashboard_guru/index','refresh');
 		}
+	}
+	public function get_modul()
+	{
+		$dt = $this->mdg->get_modul();
+		echo json_encode($dt);
+	}
+	public function detail_modul($id)
+	{
+		$dt = $this->mdg->get_detailModul($id);
+		echo json_encode($dt);
+	}
+	public function update_modul()
+	{
+		if ($_FILES['file_modul']['name']!="") 
+		{
+			
+			$config['upload_path'] = './assets/file_modul/';
+			$config['allowed_types'] = 'pdf|docx|ppt';
+			$config['max_size']  = '10000000000000000';
+			$config['max_width']  = '10240000000000000';
+			$config['max_height']  = '768000000000000000000';
+			
+			$this->load->library('upload', $config);
+			
+			if ( ! $this->upload->do_upload('file_modul')){
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger">Gagal Update. Mungkin ada yang salah</div>');
+				redirect('Dashboard_guru/index','refresh');
+			}
+			else{
+				$data = array('file_modul' 	=> $this->upload->data('file_name'),
+							  'nama_modul' 	=> $this->input->post('nama_modul')
+							);
+				
+				$this->db->where('id_modul', $this->input->post('id_modul'))->update('modul',$data);
+				$this->session->set_flashdata('pesan', '<div class="alert alert-success">Berhasil Update</div>');
+				redirect('Dashboard_guru/index','refresh');
+			}
+			
+		} 
+		else 
+		{
+			$data = array('nama_modul' 	=> $this->input->post('nama_modul'));
+			$this->db->where('id_modul', $this->input->post('id_modul'))->update('modul',$data);
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success">Berhasil Update</div>');
+			redirect('Dashboard_guru/index','refresh');
+		}
+		
+	}
+	public function hapus_modul($id)
+	{
+		$proses = $this->db->where('id_modul', $id)->delete('modul');
+		if ($proses==true) 
+		{
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success">Berhasil Hapus</div>');
+			redirect('Dashboard_guru/index','refresh');
+		} 
+		else 
+		{
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success">Gagal Hapus<, mungkin ada yang salah/div>');
+			redirect('Dashboard_guru/index','refresh');
+		}
+		
+		
 	}
 }
 
