@@ -149,9 +149,9 @@
 							</a>
 						</li>
 						<li class="sidebar-item">
-							<a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-profile.html" aria-expanded="false">
+							<a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?=base_url()?>ModulController" aria-expanded="false">
 								<i class="mdi mdi-account-network"></i>
-								<span class="hide-menu">Profile</span>
+								<span class="hide-menu">Modul</span>
 							</a>
 						</li>
 						<li class="sidebar-item">
