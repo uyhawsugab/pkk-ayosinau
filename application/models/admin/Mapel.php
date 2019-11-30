@@ -7,7 +7,7 @@ class Mapel extends CI_Model {
 
 	public function get()
 	{
-		$data = $this->db->get('modul')->result();
+		$data = $this->db->get('mapel')->result();
 		return $data;
 	}
 

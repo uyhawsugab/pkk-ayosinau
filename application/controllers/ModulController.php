@@ -31,11 +31,9 @@ class ModulController extends CI_Controller {
 	{
 		$this->form_validation->set_rules('nama_modul', 'fieldlabel', 'trim|required');
 		$this->form_validation->set_rules('harga', 'fieldlabel', 'trim|required');
-		$this->form_validation->set_rules('status', 'fieldlabel', 'trim|required');
 		$this->form_validation->set_rules('stok', 'fieldlabel', 'trim|required');
 		$this->form_validation->set_rules('id_jenis_modul', 'fieldlabel', 'trim|required');
 		$this->form_validation->set_rules('id_mapel', 'fieldlabel', 'trim|required');
-		array('required' => 'Harus Diisi');
 
 		
 		if ($this->form_validation->run() == TRUE) {
@@ -71,11 +69,31 @@ class ModulController extends CI_Controller {
 
 
 		if ($this->form_validation->run() == TRUE) {
-			# code...
+			$update = $this->mod->update();
+			if ($update) {
+				$this->session->set_flashdata('pesan', 'Berhasil Update');
+				
+			}else {
+				$this->session->set_flashdata('pesan', 'Gagal Update');
+				
+			}redirect(base_url('ModulController'), 'refresh');
 		} else {
-			# code...
+			$this->session->set_flashdata('pesan', validation_errors());
 		}
+		redirect(base_url('ModulController'), 'refresh');
 		
+	}
+
+	public function delete($id)
+	{
+		$delete = $this->mod->destroy($id);
+		if ($delete) {
+			$this->session->set_flashdata('pesan', 'Berhasil Delete');
+			
+		}else {
+			$this->session->set_flashdata('pesan', 'Gagal Delete');
+			
+		}redirect(base_url('ModulController'), 'refresh');
 	}
 
 }

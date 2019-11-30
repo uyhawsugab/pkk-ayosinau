@@ -34,8 +34,8 @@ class Modul extends CI_Model {
 			$data = array(
 				'nama_modul' => $this->input->post('nama_modul'),
 				'harga' => $this->input->post('harga'),
-				'status' => $this->input->post('status'),
 				'stok' => $this->input->post('stok'),
+				'status' => "Tersedia",
 				'id_jenis_modul' => $this->input->post('id_jenis_modul'),
 				'id_mapel' => $this->input->post('id_mapel'),
 				'gambar' => $this->upload->data('file_name')
