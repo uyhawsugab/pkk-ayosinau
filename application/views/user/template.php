@@ -49,11 +49,11 @@
 									<a class="nav-link" href="cource.html">Courses</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="blog.html">Blog</a>
+									<a class="nav-link" href="<?=base_url()?>DashboardUser/modulPage">Buy Modul</a>
 								</li>
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Account
+										<?php $this->session->userdata('nama')?>
 									</a>
 									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<a class="dropdown-item" href="single-blog.html">Single blog</a>

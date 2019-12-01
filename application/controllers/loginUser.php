@@ -28,10 +28,9 @@ class loginUser extends CI_Controller {
 			$dataUser = $login->row();
 			$data = array(
 				'id_user' 	=> $dataUser->id_user,
-				'username' 	=> $dataUser->username,
+				'nama' 		=> $dataUser->nama,
 				'email' 	=> $dataUser->email,
 				'alamat' 	=> $dataUser->alamat,
-				'password' 	=> md5($dataUser->password),
 				'notelp' 	=> $dataUser->notelp,
 				'id_level' 	=> $dataUser->id_level,
 				'id_mapel'	=> $dataUser->id_mapel,

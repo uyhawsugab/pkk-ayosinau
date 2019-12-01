@@ -5,9 +5,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class getModul extends CI_Model {
 
-	public function getModul()
+	public function get()
 	{
-		$modul = $this->db->get('modul')->result();
+		$modul = $this->db
+			->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
+			->join('mapel', 'mapel.id_mapel = modul.id_mapel')
+			->get('modul')->result();
 		return $modul;
 	}
 
