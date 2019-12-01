@@ -71,6 +71,12 @@ class loginUser extends CI_Controller {
 		$this->load->view('auth/v_register_guru');
 	}
 
+	public function get_mapel()
+	{
+		$this->load->model('admin/Mapel','mp');
+		$dt = $this->mp->get();
+		echo json_encode($dt);
+	}
 	public function RegisterUser()
 	{
 		$register = $this->auth->registerUser();

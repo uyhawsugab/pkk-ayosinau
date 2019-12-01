@@ -14,6 +14,7 @@ class Dashboard_guru extends CI_Controller {
 	
 	public function index()
 	{
+	
 		if ($this->session->userdata('login')==true) 
 		{
 			$data['konten']="guru/homepage_guru";
@@ -46,7 +47,7 @@ class Dashboard_guru extends CI_Controller {
 		else
 		{
 			$data = array(
-						'file_modul' 		=> $this->upload->data('file_name'),
+						'file_modul' 	=> $this->upload->data('file_name'),
 						'nama_modul' 	=> $this->input->post('nama_modul'),
 						'harga' 		=> "gratis",
 						'id_jenis_modul' => 2,
