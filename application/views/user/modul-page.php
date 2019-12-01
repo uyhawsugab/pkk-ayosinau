@@ -56,9 +56,6 @@
 										<a class="dropdown-item" href="<?= base_url() ?>loginUser/logout">logout</a>
 									</div>
 								</li>
-								<li class="d-none d-lg-block">
-									<a class="btn_1" href="#tambah_modul" data-toggle="modal">Tambah Modul</a>
-								</li>
 							</ul>
 						</div>
 					</nav>
@@ -76,7 +73,7 @@
 					<div class="breadcrumb_iner text-center">
 						<div class="breadcrumb_iner_item">
 							<h2>Selamat Datang</h2>
-							<p><?php $this->session->userdata('nama'); ?><span>/</span>Dashboard</p>
+							<p><?= $this->session->userdata('nama'); ?><span>/</span>Buy Modul</p>
 						</div>
 					</div>
 				</div>

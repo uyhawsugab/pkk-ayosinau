@@ -167,18 +167,10 @@
 						setTimeout(function() {
 							location.href = "DashboardAdmin/index";
 						}, 500);
-					} else if(hasil['status']==0){
-						$("#pesan").html("Username password tidak cocok");
+					} else {
+						$("#pesan").html(" Username Atau Password Salah");
 						$("#pesan").show('animate');
 						$("#pesan").addClass("alert alert-danger");
-						setTimeout(function() {
-							$("#pesan").hide('animate');
-							$("#pesan").removeClass("alert alert-danger");
-						}, 2000);
-					} else {
-						$("#pesan").html("Anda belum logout sebelumnya");
-						$("#pesan").show('animate');
-						$("#pesan").addClass("alert alert-warning");
 						setTimeout(function() {
 							$("#pesan").hide('animate');
 							$("#pesan").removeClass("alert alert-danger");

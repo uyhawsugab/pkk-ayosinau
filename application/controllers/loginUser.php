@@ -26,9 +26,10 @@ class loginUser extends CI_Controller {
 		$login = $this->auth->checkDataUser();
 		if ($login->num_rows()>0) {
 			$dataUser = $login->row();
-			$data = array(
+			$array = array(
 				'id_user' 	=> $dataUser->id_user,
 				'nama' 		=> $dataUser->nama,
+				'username'  => $dataUser->username,
 				'email' 	=> $dataUser->email,
 				'alamat' 	=> $dataUser->alamat,
 				'notelp' 	=> $dataUser->notelp,
@@ -37,19 +38,25 @@ class loginUser extends CI_Controller {
 				'login' 	=> TRUE
 			);
 
-			$this->session->set_userdata($data);
+			$this->session->set_userdata($array);
 			$data['status'] = 1;
 			if ($this->session->userdata('id_level') == 1) 
 			{
+				
 				$data['id_level'] = 1;
+				
 			}
 			elseif ($this->session->userdata('id_level') == 2) 
 			{
+				
 				$data['id_level'] = 2;
+				
 			}
 			else 
 			{
+				
 				$data['id_level'] = 3;
+				
 			}
 			echo json_encode($data);
 

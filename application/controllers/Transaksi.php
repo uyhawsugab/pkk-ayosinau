@@ -17,6 +17,8 @@ class Transaksi extends CI_Controller {
 
 	public function index()
 	{
+		$data['konten'] = 'user/user-transaction';
+		$this->load->view('user/modul-page', $data);
 		
 	}
 
