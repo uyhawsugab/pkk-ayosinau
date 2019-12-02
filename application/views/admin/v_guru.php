@@ -13,7 +13,7 @@
 		<div class="card">
 			<div class="card-body">
 				<h4 class="card-title">Data Pemateri / Pengajar
-					<a href="#tambah" data-toggle="modal" class="btn btn-primary" style="float:right">Tambah</a>
+					
 				</h4>
 			</div>
 			<div class="table-responsive">
@@ -40,7 +40,7 @@
 						<td>' . $data1->email . '</td>
 						<td>' . $data1->alamat . '</td>
 						<td>' . $data1->notelp . '</td>
-						<td><a herf="#update" class="btn btn-warning" data-toggle="modal" onclick="detail(' . $data1->id_user . ')">Update</a><a style="margin-left:10px" href=' . base_url('Siswa/delete/' . $data1->id_user) . ' class="btn btn-success" onclick="return confirm(\'Anda Yakin ?\')">Delete</a></td>
+						<td><a style="margin-left:10px" href=' . base_url('Siswa/delete/' . $data1->id_user) . ' class="btn btn-danger" onclick="return confirm(\'Anda Yakin ?\')">Blokir</a></td>
 						</tr>
 					';
 						}

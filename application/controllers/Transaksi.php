@@ -17,7 +17,6 @@ class Transaksi extends CI_Controller {
 
 	public function index()
 	{
-		$data['transaksi1'] = $this->modul->getModul();
 		$data['content'] = 'admin/v_transaksi';
 		$this->load->view('admin/template', $data);
 	}

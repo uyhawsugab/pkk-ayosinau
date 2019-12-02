@@ -13,7 +13,7 @@
 		<div class="card">
 			<div class="card-body">
 				<h4 class="card-title">Data User
-					<a href="#tambah" data-toggle="modal" class="btn btn-primary" style="float:right">Tambah</a>
+					
 				</h4>
 			</div>
 			<div class="table-responsive">
@@ -40,7 +40,7 @@
 						<td>' . $data->email . '</td>
 						<td>' . $data->alamat . '</td>
 						<td>' . $data->notelp . '</td>
-						<td><a herf="#update" class="btn btn-warning" data-toggle="modal" onclick="detail(' . $data->id_user . ')">Update</a><a style="margin-left:10px" href=' . base_url('Siswa/delete/' . $data->id_user) . ' class="btn btn-success" onclick="return confirm(\'Anda Yakin ?\')">Delete</a></td>
+						<td><a style="margin-left:10px" href=' . base_url('Siswa/delete/' . $data->id_user) . ' class="btn btn-danger" onclick="return confirm(\'Anda Yakin ?\')">Blokir</a></td>
 						</tr>
 					';
 						}
@@ -55,14 +55,5 @@
 			</div>
 		</div>
 	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
+	
 				
