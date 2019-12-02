@@ -14,9 +14,34 @@ class getModul extends CI_Model {
 		return $modul;
 	}
 
+	public function getGratis(){
+		$modul = $this->db
+			->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
+			->join('mapel', 'mapel.id_mapel = modul.id_mapel')
+			->where('jenis_modul', 'gratis')
+			->get('modul')->result();
+
+		return $modul;
+	}
+	
+	public function getBayar()
+	{
+		$modul = $this->db
+			->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
+			->join('mapel', 'mapel.id_mapel = modul.id_mapel')
+			->where('jenis_modul', 'berbayar')
+			->get('modul')->result();
+
+		return $modul;
+	}
+
 	public function searchModul($nama)
 	{
-		$result = $this->db->like('nama_modul', $nama)->get('modul')->result();
+		$result = $this->db
+		->like('nama_modul', $nama)
+		->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
+		->join('mapel', 'mapel.id_mapel = modul.id_mapel')
+		->get('modul')->result();
 		return $result;
 	}
 

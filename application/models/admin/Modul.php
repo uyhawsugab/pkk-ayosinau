@@ -41,7 +41,7 @@ class Modul extends CI_Model {
 	public function insert()
 	{
 		
-		$config['upload_path'] = 'assets/gambar_modul/';
+		$config['upload_path'] = 'assets/uploads/modul';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		$config['max_size']  = '10000000000000';
 		$config['max_width']  = '1024000000000000';
@@ -81,7 +81,7 @@ class Modul extends CI_Model {
 		if ($namaGambar != "") {
 
 
-			$config['upload_path'] = 'assets/gambar_modul';
+			$config['upload_path'] = 'assets/uploads/modul';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size']  = '10000000000000';
 			$config['max_width']  = '1024000000000000';

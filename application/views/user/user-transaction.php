@@ -23,7 +23,7 @@
 
 	</div>
 </div>
-<div id="msg" class="col-md-10"></div>
+<div id="msg" class="col-md-12"></div>
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="pembayaran" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
@@ -136,6 +136,7 @@
 						setTimeout(() => {
 							$("#pembayaran").modal("hide");
 							$("#msg").removeClass("alert alert-success");
+							location.href="DashboardUser/modulPage";
 						}, 500);
 					}, 2000);
 				} else {

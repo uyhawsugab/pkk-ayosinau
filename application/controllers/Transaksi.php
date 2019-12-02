@@ -17,9 +17,8 @@ class Transaksi extends CI_Controller {
 
 	public function index()
 	{
-		$data['transaksi1'] = $this->modul->getModul();
-		$data['content'] = 'admin/v_transaksi';
-		$this->load->view('admin/template', $data);
+		$data['konten'] = 'user/user-transaction';
+		$this->load->view('user/modul-page', $data);
 	}
 
 	
@@ -94,7 +93,7 @@ class Transaksi extends CI_Controller {
 	public function uploadBuktiTransfer()
 	{
 		
-		$config['upload_path'] = './assets/buktiTransfer';
+		$config['upload_path'] = './assets/uploads/buktiTransfer';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size']  = '100000000000000';
 		$config['max_width']  = '1024000000000';

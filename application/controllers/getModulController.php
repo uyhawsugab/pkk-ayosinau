@@ -25,6 +25,18 @@ class getModulController extends CI_Controller {
 		echo json_encode($dataModul);
 	}
 
+	public function gratis()
+	{
+		$data = $this->mod->getGratis();
+		echo json_encode($data);
+	}
+
+	public function bayar()
+	{
+		$data = $this->mod->getBayar();
+		echo json_encode($data);
+	}
+
 	public function detail($id)
 	{
 		$data = $this->mod->getDetailData($id);

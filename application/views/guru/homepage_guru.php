@@ -1,36 +1,10 @@
  <!--::review_part start::-->
     <section class="special_cource padding_top" style="margin-bottom: 10%;">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-5">
-                    <div class="section_tittle text-center">
-                        <p>Dashboard</p>
-                        <h2>Modul Anda</h2>
-                    </div>
-                </div>
-            </div>
              <?= $this->session->flashdata('pesan');?>
-              <?php
-                $cek = $this->db->where('id_mapel',$this->session->userdata('id_mapel'))->where('harga','gratis')->get('modul')->result();
-                if ($cek) 
-                {
-                  ?>
-
-                  <div class="row" id="tampil_modul">
-                    </div> 
-              <?php
-                  
-                } 
-                else 
-                {
-                  ?>
-                    <div class="alert alert-danger text-center">Anda Belum Upload Modul</div>
-              <?php
-                }
-              ?>
-            
+            <div class="row" id="tampil_modul">
                 
-            
+            </div> 
         </div>
     </section>
     <!--::blog_part end::-->
@@ -52,23 +26,12 @@
                          <input class="form-control" name="nama_modul" type="text" placeholder="Judul Modul" required="true">
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                         <input class="form-control" name="link_modul" type="text" placeholder="Link Modul" required="true">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <textarea class="form-control" cols="30" rows="3" name="deskripsi" placeholder="Deskripsi" required="true"></textarea>
-                    </div>
-                </div>
                <div class="col-md-12">
                     <div class="form-group">
-                         <input class="form-control" name="gambar" type="file" placeholder="Gambar Modul" required="true">
-                         <span style="color: red;">*format gambar(jpg/png/jpeg), max size 2MB</span>
+                         <input class="form-control" name="file_modul" type="file" placeholder="File Modul" required="true">
                     </div>
                 </div>
-                <div class="col-md-12 text-right">
+                <div class="col-md-12">
                      <div class="form-group mt-3">
                         <button type="submit" class="button button-contactForm btn_1">
                             Insert
@@ -102,23 +65,13 @@
                          <input class="form-control" name="nama_modul" type="text" placeholder="Judul Modul" id="nama_modul">
                     </div>
                 </div>
-                 <div class="col-md-12">
-                    <div class="form-group">
-                         <input class="form-control" name="link_modul" type="text" placeholder="Link Modul" id="link_modul">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <textarea class="form-control" cols="30" rows="3" name="deskripsi" placeholder="Deskripsi" id="deskripsi"></textarea>
-                    </div>
-                </div>
                <div class="col-md-12">
                     <div class="form-group">
-                         <input class="form-control" name="gambar_modul" type="file" placeholder="Gambar Modul" id="gambar_modul">
+                         <input class="form-control" name="file_modul" type="file" placeholder="File Modul" id="file_modul">
                          <span style="color: red;">*kosongkan jika tidak ada perubahan</span>
                     </div>
                 </div>
-                <div class="col-md-12 text-right">
+                <div class="col-md-12">
                      <div class="form-group mt-3">
                         <button type="submit" class="button button-contactForm btn_1">
                             Update
@@ -139,17 +92,16 @@
         $.getJSON("<?= base_url()?>Dashboard_guru/get_modul",function(data){
             var tampil = "";
             $.each(data,function(key,dt){
-             
                 tampil+=
                     '<div class="col-sm-6 col-lg-4">'+
                         '<div class="single_special_cource">'+
                             '<div class="special_cource_text">'+  
-                            '<a href="'+dt['link_modul']+'" class="btn_4">Link Modul</a>'+
+                            '<a href="#" class="btn_4">Lihat Modul</a>'+
                                 '<h4>'+dt['harga']+'</h4>'+
                                 '<a href="#">'+
                                     '<h3>'+dt['nama_modul']+'</h3>'+
                                 '</a>'+
-                                '<p>'+dt['deskripsi']+'</p><br>'+
+                                '<p>Berisi deskripsi tentang modul yang telah diupload</p>'+
                                 '<a href="#update_modul" class="btn btn-primary btn-sm" onclick="tm_detail('+dt['id_modul']+')" data-toggle="modal">update</a>&nbsp'+
                                 '<a href="<?= base_url()?>Dashboard_guru/hapus_modul/'+dt['id_modul']+'" onclick="return confirm(\'anda yakin menghapus modul ini?\')" class="btn btn-danger btn-sm">delete</a>'+
                                
@@ -157,7 +109,6 @@
 
                         '</div>'+
                     '</div>';
-             
             });
             $('#tampil_modul').html(tampil);
         });
@@ -168,9 +119,7 @@
             $.getJSON("<?= base_url()?>Dashboard_guru/detail_modul/"+id,function(data){
               $('#id_modul').val(data['id_modul']);
               $('#nama_modul').val(data['nama_modul']);
-              $('#link_modul').val(data['link_modul']);
-              $('#deskripsi').val(data['deskripsi']);
-              $('#gambar_modul').val(data['gambar_modul']);
+              $('#file_modul').val(data['file_modul']);
             });
         }
   </script>

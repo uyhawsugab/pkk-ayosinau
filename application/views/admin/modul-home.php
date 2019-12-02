@@ -41,7 +41,7 @@
 						<td>' . $data->harga . '</td>
 						<td>' . $data->jenis_modul . '</td>
 						<td>' . $data->nama_mapel . '</td>
-						<td><img width="150px" height="90px" src=' . base_url('assets/gambar_modul/' . $data->gambar) . '></td>
+						<td><img width="150px" height="90px" src=' . base_url('assets/uploads/modul/' . $data->gambar) . '></td>
 						<td><a herf="#update" class="btn btn-warning" data-toggle="modal" onclick="detail(' . $data->id_modul . ')">Update</a><a style="margin-left:10px" href=' . base_url('ModulController/delete/' . $data->id_modul) . ' class="btn btn-success" onclick="return confirm(\'Anda Yakin ?\')">Delete</a></td>
 						</tr>
 					';
