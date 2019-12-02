@@ -21,7 +21,7 @@ class ModulController extends CI_Controller {
 	{
 		$data['dataJenis'] = $this->jmod->get();
 		$data['dataMapel'] = $this->map->get();
-		$data['dataModul'] = $this->mod->get();
+		$data['dataModul'] = $this->mod->getGratis();
 		$data['content'] = 'admin/modul-home';
 		$this->load->view('admin/template', $data);
 		
@@ -29,58 +29,37 @@ class ModulController extends CI_Controller {
 
 	public function insert()
 	{
-		$this->form_validation->set_rules('nama_modul', 'fieldlabel', 'trim|required');
-		$this->form_validation->set_rules('harga', 'fieldlabel', 'trim|required');
-		$this->form_validation->set_rules('stok', 'fieldlabel', 'trim|required');
-		$this->form_validation->set_rules('id_jenis_modul', 'fieldlabel', 'trim|required');
-		$this->form_validation->set_rules('id_mapel', 'fieldlabel', 'trim|required');
-
-		
-		if ($this->form_validation->run() == TRUE) {
-			
 			$insert = $this->mod->insert();
 			if ($insert) {
-				$this->session->set_flashdata('pesan', 'Berhasil Tambah Data');
-			}else {
-				$this->session->set_flashdata('pesan', 'Gagal Tambah Data');
-			}redirect(base_url('ModulController'), 'refresh');
-		} else {
-			$this->session->set_flashdata('pesan', validation_errors());
-		}redirect(base_url('ModulController'), 'refresh');
-		
-		
+				$this->session->set_flashdata('pesan', '<div class="alert alert-success">Berhasil Tambah Data</div>');
+			}
+			else 
+			{
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger">Gagal Tambah Data</div>');
+			}
+			redirect(base_url('DashboardAdmin/modul_berbayar'), 'refresh');
 	}
 
-	public function show($id)
+	public function show($id_modul)
 	{
-		$data = $this->mod->show($id);
+		$data = $this->mod->show($id_modul);
 		echo json_encode($data);
 	}
 
 	public function update()
 	{
-		$this->form_validation->set_rules('nama_modul', 'fieldlabel', 'trim|required');
-		$this->form_validation->set_rules('harga', 'fieldlabel', 'trim|required');
-		$this->form_validation->set_rules('status', 'fieldlabel', 'trim|required');
-		$this->form_validation->set_rules('stok', 'fieldlabel', 'trim|required');
-		$this->form_validation->set_rules('id_jenis_modul', 'fieldlabel', 'trim|required');
-		$this->form_validation->set_rules('id_mapel', 'fieldlabel', 'trim|required');
-		array('required' => 'Harus Diisi');
-
-
-		if ($this->form_validation->run() == TRUE) {
-			$update = $this->mod->update();
-			if ($update) {
-				$this->session->set_flashdata('pesan', 'Berhasil Update');
+		$update = $this->mod->update();
+			if ($update) 
+			{
+				$this->session->set_flashdata('pesan', '<div class="alert alert-success">Berhasil ubah Data</div>');
 				
-			}else {
-				$this->session->set_flashdata('pesan', 'Gagal Update');
+			}
+			else 
+			{
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger">Gagal Ubah Data</div>');
 				
-			}redirect(base_url('ModulController'), 'refresh');
-		} else {
-			$this->session->set_flashdata('pesan', validation_errors());
-		}
-		redirect(base_url('ModulController'), 'refresh');
+			}
+			redirect(base_url('DashboardAdmin/modul_berbayar'), 'refresh');
 		
 	}
 

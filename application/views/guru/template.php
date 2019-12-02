@@ -31,13 +31,13 @@
 
 <body>
     <!--::header part start::-->
-    <header class="main_menu single_page_menu">
+    <header class="main_menu home_menu">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand logo_1" href="#"> <img src="<?= base_url()?>assets/img/LOGOPKK.png" alt="logo"> </a>
-                        <a class="navbar-brand logo_2" href="#"> <img src="<?= base_url()?>assets/img/LOGOPKK.png" alt="logo"> </a>
+                        <a class="navbar-brand" href="#"> <img src="<?= base_url()?>assets/img/LOGOPKK.png" alt="logo"> </a>
+                        
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,6 @@
                                         Akun
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="single-blog.html">Setting</a>
                                         <a class="dropdown-item" href="<?= base_url()?>loginUser/logout">logout</a>
                                     </div>
                                 </li>
@@ -71,22 +70,7 @@
     </header>
     <!-- Header part end-->
 
-    <!-- breadcrumb start-->
-    <section class="breadcrumb breadcrumb_bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb_iner text-center">
-                        <div class="breadcrumb_iner_item">
-                            <h2>Selamat Datang</h2>
-                            <p>Home<span>/</span>Dashboard</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- breadcrumb start-->
+   
 
    <?php
         $this->load->view($konten);

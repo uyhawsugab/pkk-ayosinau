@@ -65,7 +65,7 @@
 					
 				</div>
 				<div class="col-md-6 col-lg-6">
-                    <h1 class="text-center">SIGN UP USER</h1>
+                    
                     <?= $this->session->flashdata('pesan');?>
 					<form class="form-contact contact_form" action="<?= base_url()?>loginUser/RegisterUser" method="post">
                         <div class="row">

@@ -31,15 +31,15 @@ class Dashboard_guru extends CI_Controller {
 	}
 	public function tambah_modul()
 	{
-		$config['upload_path'] = './assets/file_modul/';
-		$config['allowed_types'] = 'pdf|docx|ppt';
+		$config['upload_path'] = './assets/gambar_modul/';
+		$config['allowed_types'] = 'jpg|png|jpeg';
 		$config['max_size']  = '100000000000000';
 		$config['max_width']  = '102400000000000';
 		$config['max_height']  = '76800000000000000';
 		
 		$this->load->library('upload', $config);
 		
-		if ( ! $this->upload->do_upload('file_modul'))
+		if ( ! $this->upload->do_upload('gambar'))
 		{
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger">Gagal Tambah. Mungkin ada yang salah</div>');
 			redirect('Dashboard_guru/index','refresh');
@@ -47,11 +47,13 @@ class Dashboard_guru extends CI_Controller {
 		else
 		{
 			$data = array(
-						'file_modul' 	=> $this->upload->data('file_name'),
+						'gambar' 	=> $this->upload->data('file_name'),
 						'nama_modul' 	=> $this->input->post('nama_modul'),
 						'harga' 		=> "gratis",
 						'id_jenis_modul' => 2,
-						'id_mapel' 		=> $this->session->userdata('id_mapel')
+						'id_mapel' 		=> $this->session->userdata('id_mapel'),
+						'link_modul'	=> $this->input->post('link_modul'),
+						'deskripsi' => $this->input->post('deskripsi')
 						);
 
 			$this->db->insert('modul', $data);
@@ -71,10 +73,10 @@ class Dashboard_guru extends CI_Controller {
 	}
 	public function update_modul()
 	{
-		if ($_FILES['file_modul']['name']!="") 
+		if ($_FILES['gambar']['name']!="") 
 		{
 			
-			$config['upload_path'] = './assets/file_modul/';
+			$config['upload_path'] = './assets/gambar_modul/';
 			$config['allowed_types'] = 'pdf|docx|ppt';
 			$config['max_size']  = '10000000000000000';
 			$config['max_width']  = '10240000000000000';
@@ -82,27 +84,33 @@ class Dashboard_guru extends CI_Controller {
 			
 			$this->load->library('upload', $config);
 			
-			if ( ! $this->upload->do_upload('file_modul')){
+			if ( ! $this->upload->do_upload('gambar')){
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger">Gagal Update. Mungkin ada yang salah</div>');
 				redirect('Dashboard_guru/index','refresh');
 			}
 			else{
-				$data = array('file_modul' 	=> $this->upload->data('file_name'),
-							  'nama_modul' 	=> $this->input->post('nama_modul')
+				$data = array('gambar' 	=> $this->upload->data('gambar'),
+							  'nama_modul' 	=> $this->input->post('nama_modul'),
+							  'link_modul'	=> $this->input->post('link_modul'),
+								'deskripsi' => $this->input->post('deskripsi')
 							);
 				
 				$this->db->where('id_modul', $this->input->post('id_modul'))->update('modul',$data);
 				$this->session->set_flashdata('pesan', '<div class="alert alert-success">Berhasil Update</div>');
-				redirect('Dashboard_guru/index','refresh');
+				//redirect('Dashboard_guru/index','refresh');
 			}
 			
 		} 
 		else 
 		{
-			$data = array('nama_modul' 	=> $this->input->post('nama_modul'));
+			$data = array('nama_modul' 	=> $this->input->post('nama_modul'),
+							'link_modul'	=> $this->input->post('link_modul'),
+							'deskripsi' => $this->input->post('deskripsi')
+							);
+
 			$this->db->where('id_modul', $this->input->post('id_modul'))->update('modul',$data);
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success">Berhasil Update</div>');
-			redirect('Dashboard_guru/index','refresh');
+			//redirect('Dashboard_guru/index','refresh');
 		}
 		
 	}

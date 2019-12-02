@@ -11,6 +11,9 @@ class JenisModul extends CI_Model {
 		return $data;
 	}
 
+
+
+
 	public function insert()
 	{
 		$data = array(
