@@ -150,7 +150,7 @@
 						$("#pesan").show('animate');
 						$("#pesan").addClass("alert alert-success");
 						setTimeout(function() {
-							location.href = "DashboardUser/index";
+							location.href = "DashboardUser/modulPage";
 						}, 500);
 
 					} else if (hasil['id_level'] == 2) {

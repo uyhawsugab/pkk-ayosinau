@@ -5,7 +5,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Etrain</title>
+	<title>Landing Page</title>
 	<link rel="icon" href="<?= base_url() ?>assets/img/logoicon.png">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="<?= base_url() ?>assets/user/css/bootstrap.min.css">

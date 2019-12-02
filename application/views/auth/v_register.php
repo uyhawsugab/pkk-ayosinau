@@ -46,7 +46,7 @@
                             
                                 
 								<li class="d-none d-lg-block">
-									<a class="btn_2" href="<?= base_url()?>loginUser/index">Sign In</a>
+									<a class="btn_1" href="<?= base_url()?>loginUser/index">Sign In</a>
 								</li>
 							</ul>
 						</div>
@@ -57,56 +57,61 @@
 	</header>
     <!-- Header part end-->
     
-    <section class="" style="margin-top: 10%; ">
+    <section class="special_cource padding_top">
 		<div class="container">
-			<div class="row align-items-sm-center align-items-lg-stretch">
-
+			 <div class="row justify-content-center">
+                <div class="col-xl-5">
+                    <div class="section_tittle text-center">
+                        <p>Sign Up</p>
+                        <h2>Daftar Siswa</h2>
+                    </div>
+                </div>
+            </div>
+			<div class="row">
 				<div class="col-md-3 col-lg-3">
 					
 				</div>
 				<div class="col-md-6 col-lg-6">
-                    
                     <?= $this->session->flashdata('pesan');?>
-					<form class="form-contact contact_form" action="<?= base_url()?>loginUser/RegisterUser" method="post">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control" name="nama" type="text" placeholder="Nama Lengkap" required="true">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control" name="email" type="email" placeholder="Email" required="true">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <textarea name="alamat" cols="30" rows="10" class="form-control" placeholder="Alamat" required="true"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control" name="notelp"  type="text" placeholder="Nomor Telpon" required="true">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control" name="username" type="text" placeholder="Username" required="true">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control" name="password" id="password" type="password" placeholder="Password" required="true">
-                                </div>
-                            </div>
-                            <input type="hidden" name="id_level" value="1">
-                            <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm btn_1">Register</button>
-                            </div>
-                        </div>
-					
-						
-					</form>
+						<form class="form-contact contact_form" action="<?= base_url()?>loginUser/RegisterUser" method="post">
+	                        <div class="row">
+	                            <div class="col-12">
+	                                <div class="form-group">
+	                                    <input class="form-control" name="nama" type="text" placeholder="Nama Lengkap" required="true">
+	                                </div>
+	                            </div>
+	                            <div class="col-12">
+	                                <div class="form-group">
+	                                    <input class="form-control" name="email" type="email" placeholder="Email" required="true">
+	                                </div>
+	                            </div>
+	                            <div class="col-12">
+	                                <div class="form-group">
+	                                    <textarea name="alamat" cols="30" rows="10" class="form-control" placeholder="Alamat" required="true"></textarea>
+	                                </div>
+	                            </div>
+	                            <div class="col-12">
+	                                <div class="form-group">
+	                                    <input class="form-control" name="notelp"  type="text" placeholder="Nomor Telpon" required="true">
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                                <div class="form-group">
+	                                    <input class="form-control" name="username" type="text" placeholder="Username" required="true">
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                                <div class="form-group">
+	                                    <input class="form-control" name="password" id="password" type="password" placeholder="Password" required="true">
+	                                </div>
+	                            </div>
+	                            <input type="hidden" name="id_level" value="1">
+	                            <div class="form-group mt-3">
+	                                <button type="submit" class="button button-contactForm btn_1">Register</button>
+	                            </div>
+	                        </div>	
+						</form>
+                    
                 </div>
                 <div class="col-md-3 col-lg-3">
                 
