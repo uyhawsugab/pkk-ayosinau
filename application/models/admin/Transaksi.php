@@ -14,7 +14,10 @@ class Transaksi extends CI_Model {
 		return $data;
 	}
 
-	
+	public function show($id)
+	{
+		$detail
+	}
 
 
 
