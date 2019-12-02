@@ -25,7 +25,7 @@
 						</div>
 
 						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-							<div class="card" style="width:200px">
+							<div class="card" style="width:100%">
 								<ul class="list-group list-group-flush">
 									<li class="list-group-item"><a href="#" onclick="gratis()">Modul Gratis</a></li>
 									<li class="list-group-item"><a href="#" onclick="berbayar()">Modul Berbayar</a></li>
@@ -42,15 +42,15 @@
 							</h2>
 						</div>
 						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-							<div class="card" style="width:200px">
+							<div class="card" style="width:100%">
 								<ul class="list-group list-group-flush">
-									<li class="list-group-item"><a href="#" onclick="gratis()">Modul Gratis</a></li>
+									<li class="list-group-item"><a href="#" onclick="lain()">Pemrograman</a></li>
 									<li class="list-group-item"><a href="#" onclick="berbayar()">Modul Berbayar</a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
-				
+
 				</div>
 			</div>
 			<div class="col-md-10" id="showModul"></div>
@@ -127,7 +127,7 @@
 				content +=
 					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
 					'<div class="single_special_cource">' +
-					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" class="special_img">' +
+					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
 					'<div class="special_cource_text">' +
 					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
 					'<h4>' + dt['harga'] + '</h4>' +
@@ -151,7 +151,7 @@
 				content +=
 					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
 					'<div class="single_special_cource">' +
-					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" class="special_img">' +
+					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; class="special_img">' +
 					'<div class="special_cource_text">' +
 					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
 					'<h4>' + dt['harga'] + '</h4>' +
@@ -173,9 +173,9 @@
 			let content = "";
 			$.each(data, function(key, dt) {
 				content +=
-					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:right">' +
+					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
 					'<div class="single_special_cource">' +
-					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" class="special_img">' +
+					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
 					'<div class="special_cource_text">' +
 					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
 					'<h4>' + dt['harga'] + '</h4>' +
@@ -198,9 +198,9 @@
 		let content = "";
 		$.each(data, function(key, dt) {
 			content +=
-				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:right">' +
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
 				'<div class="single_special_cource">' +
-				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" class="special_img">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
 				'<div class="special_cource_text">' +
 				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
 				'<h4>' + dt['harga'] + '</h4>' +
@@ -226,7 +226,7 @@
 					content +=
 						'<div class="col-sm-6 col-lg-4" style="margin-top:20px;">' +
 						'<div class="single_special_cource">' +
-						'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" class="special_img">' +
+						'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '"  alt="" style="width:100% !important;height:300px !important; class="special_img">' +
 						'<div class="special_cource_text">' +
 						'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
 						'<h4>' + dt['harga'] + '</h4>' +

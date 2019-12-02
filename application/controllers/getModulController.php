@@ -37,6 +37,12 @@ class getModulController extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function lain()
+	{
+		$data = $this->mod->getMapelPem();
+		echo json_encode($data);
+	}
+
 	public function detail($id)
 	{
 		$data = $this->mod->getDetailData($id);

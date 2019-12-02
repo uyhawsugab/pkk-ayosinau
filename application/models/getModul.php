@@ -35,6 +35,17 @@ class getModul extends CI_Model {
 		return $modul;
 	}
 
+	public function getMapelPem()
+	{
+		$modul = $this->db
+		->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
+		->join('mapel', 'mapel.id_mapel = modul.id_mapel')
+		->where('nama_mapel', 'Pemrograman')
+		->get('modul')->result();
+
+		return $modul;
+	}
+
 	public function searchModul($nama)
 	{
 		$result = $this->db
