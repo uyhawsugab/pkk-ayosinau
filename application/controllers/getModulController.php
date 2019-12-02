@@ -19,7 +19,7 @@ class getModulController extends CI_Controller {
 		echo json_encode($dataMod);
 	}
 
-	public function search($namaModul = '')
+	public function search($namaModul)
 	{
 		$dataModul = $this->mod->searchModul($namaModul);
 		echo json_encode($dataModul);
