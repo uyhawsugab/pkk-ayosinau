@@ -5,14 +5,11 @@
 			<div class="col-lg-6 col-xl-6">
 				<div class="banner_text">
 					<div class="banner_text_iner">
-						<h5>Every child yearns to learn</h5>
-						<h1>Making Your Childs
-							World Better</h1>
-						<p>Replenish seasons may male hath fruit beast were seas saw you arrie said man beast whales
-							his void unto last session for bite. Set have great you'll male grass yielding yielding
-							man</p>
-						<a href="#" class="btn_1">View Course </a>
-						<a href="#" class="btn_2">Get Started </a>
+						<h5>SIAPKAN MASA DEPANMU</h5>
+						<h1>Buatlah Masa Depanmu Lebih Baik</h1>
+						<p>Fitur yang ditunggu-tunggu kini sudah hadir! Gunakan AyoSinau.com di PC atau laptop kamu. Belajar kini lebih nyaman dengan layar yang lebih besar</p>
+						<a href="<?=base_url()?>DashboardUser/modulPage" class="btn_1">View Course </a>
+						<a href="<?=base_url()?>loginUser" class="btn_2">Get Started </a>
 					</div>
 				</div>
 			</div>

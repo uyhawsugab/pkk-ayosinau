@@ -30,7 +30,7 @@
 							<div id="gambar"></div>
 						</div>
 						<div class="col-md-6">
-							<div id="deskiprsi"></div>
+							<div id="deskripsi"></div>
 							<div id="jumlah"></div>
 							<br>
 							<div id="button"></div>
@@ -41,7 +41,7 @@
 					<script>
 						//Detail
 						function tmDet(id) {
-							$.getJSON("<?= base_url() ?>getModul/detail/" + id, function(data) {
+							$.getJSON("<?= base_url() ?>getModulController/detail/" + id, function(data) {
 								$("#gambar").html(
 									'<img src="<?= base_url() ?>assets/uploads/modul/' + data['gambar'] + '" style="width:100%">'
 								);
@@ -60,7 +60,7 @@
 								);
 								$("#button").html(
 									'<button id="buy" onclick="beli(' + data['id_modul'] + ')" class="btn btn-info">Buy</button>' +
-									'<a href="<?= base_url() ?>Transaksi" class="btn btn-primary">Check Out</a>'
+									'<a href="<?= base_url() ?>Transaksi" style="margin-left:20px" class="btn btn-primary">Check Out</a>'
 								);
 							});
 						}
@@ -77,25 +77,66 @@
 <script>
 	//Tampil Modul
 
-	$.getJSON("<?= base_url() ?>getModul", function(data) {
+	$.getJSON("<?= base_url() ?>getModulController", function(data) {
 		let content = "";
 		$.each(data, function(key, dt) {
-			content += '<div class="col-md-3 card">' +
-				'<img src="<?= base_url('assets/uploads/modul') ?>' + dt['gambar'] + '" class="card-img-top" alt="">' +
+			content += '<div class="col-md-3 card" style="float:left; margin-left:50px; margin-top:20px">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" class="card-img-top" style="width:100% !important">' +
 				'<div class="card-body">' +
 				'<h5 class="card-title">' + dt['nama_modul'] + '</h5>' +
-				'<p class="card-text">Harga Modul :' + dt['harga'] + '</p>' +
-				'<p class="card-text">Status :' + dt['status'] + '</p>' +
-				'<p class="card-text">Stok :' + dt['stok'] + '</p>' +
-				'<p class="card-text">Jenis Modul :' + dt['jenis_modul'] + '</p>' +
-				'<p class="card-text">Mapel Modul:' + dt['nama_mapel'] + '</p>' +
-				'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">' +
+				'<p class="card-text">Harga Modul : ' + dt['harga'] + '</p>' +
+				'<p class="card-text">Status : ' + dt['status'] + '</p>' +
+				'<p class="card-text">Stok : ' + dt['stok'] + '</p>' +
+				'<p class="card-text">Jenis Modul : ' + dt['jenis_modul'] + '</p>' +
+				'<p class="card-text">Mapel Modul : ' + dt['nama_mapel'] + '</p>' +
+				'<a class="btn btn-primary" style="margin-top:20px" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
 				'</div>' +
 				'</div>';
 
 		});
 		$("#showModul").html(content);
 	});
+
+	//Search
+	$("#search").on('keyup', (function() {
+		$.getJSON("<?= base_url() ?>getModulController/search/" + $("#search").val(),
+			function(data) {
+				let content = "";
+				$.each(data, function(key, dt) {
+					content += '<div class="col-md-3 card" style="float:left; margin-left:50px; margin-top:20px">' +
+						'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" class="card-img-top" style="width:100% !important">' +
+						'<div class="card-body">' +
+						'<h5 class="card-title">' + dt['nama_modul'] + '</h5>' +
+						'<p class="card-text">Harga Modul : ' + dt['harga'] + '</p>' +
+						'<p class="card-text">Status : ' + dt['status'] + '</p>' +
+						'<p class="card-text">Stok : ' + dt['stok'] + '</p>' +
+						'<p class="card-text">Jenis Modul : ' + dt['jenis_modul'] + '</p>' +
+						'<p class="card-text">Mapel Modul : ' + dt['nama_mapel'] + '</p>' +
+						'<a class="btn btn-primary" style="margin-top:20px" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
+						'</div>' +
+						'</div>';
+				});
+				$("#showModul").html(content);
+			});
+	}));
+
+	//add to cart
+	function beli(id){
+		let jumlah = $("#jumlah_item").val();
+		$("#pesan").hide();
+		$("#pesan").removeClass("alert alert-success");
+		$.getJSON("<?=base_url()?>Transaksi/tambahCart/"+id+"/"+jumlah, function(result){
+
+			$("#cart").html(result['total_cart']);
+			$("#msg").html("Item anda telah ditambahkan ke cart");
+			$("#msg").addClass("alert alert-success");
+			$("#msg").show('animate');
+			setTimeout(() => {
+				$("#msg").hide("fade");
+			}, 3000);
+		});
+	}
+
 </script>
 
 </html>

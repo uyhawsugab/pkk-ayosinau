@@ -5,9 +5,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class getModul extends CI_Model {
 
-	public function getModul()
+	public function get()
 	{
-		$modul = $this->db->get('modul')->result();
+		$modul = $this->db
+			->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
+			->join('mapel', 'mapel.id_mapel = modul.id_mapel')
+			->get('modul')->result();
 		return $modul;
 	}
 
@@ -52,15 +55,17 @@ class getModul extends CI_Model {
 	public function updateBuktiTransfer()
 	{
 		$data = array(
+			'metode' => $this->input->post('metode'),
 			'bukti' => $this->upload->data('file_name')
 		);
 
-		return $this->db->where('id_nota', $this->input->post('id_nota')->update('nota', $data));
+		return $this->db->where('id_nota', $this->input->post('id_nota'))->update('nota', $data);
 	}
 
 	public function updateTotalHarga($id)
 	{
 		$data = array(
+			
 			'grandtotal' => $this->cart->total()
 		);
 

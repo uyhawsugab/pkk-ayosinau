@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/user/css/slick.css">
 	<!-- style CSS -->
 	<link rel="stylesheet" href="<?= base_url() ?>assets/user/css/style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -46,14 +47,11 @@
 									<a class="nav-link" href="about.html">About</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="cource.html">Courses</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="blog.html">Blog</a>
+									<a class="nav-link" href="<?= base_url() ?>DashboardUser/modulPage">Courses</a>
 								</li>
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Account
+										<?= $this->session->userdata('nama'); ?>
 									</a>
 									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<a class="dropdown-item" href="single-blog.html">Single blog</a>
@@ -63,8 +61,9 @@
 								<li class="nav-item">
 									<a class="nav-link" href="contact.html">Contact</a>
 								</li>
-								<li class="d-none d-lg-block">
-									<a class="btn_1" href="#">Get a Quote</a>
+								<li class="nav-item">
+									<i class="material-icons" style="font-size:20px">shopping_cart</i>
+									<sup id="cart" style="font-size:15px">0</sup>
 								</li>
 							</ul>
 						</div>
@@ -117,6 +116,14 @@
 	<script src="<?= base_url() ?>assets/user/js/waypoints.min.js"></script>
 	<!-- custom js -->
 	<script src="<?= base_url() ?>assets/user/js/custom.js"></script>
+	<script>
+		function loadTotalCart() {
+			$.getJSON("<?= base_url() ?>Transaksi/showCartItems", function(data) {
+				$("#cart").html(data['total_cart']);
+			});
+		}
+		loadTotalCart();
+	</script>
 </body>
 
 </html>

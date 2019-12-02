@@ -3,7 +3,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class getModul extends CI_Controller {
+class getModulController extends CI_Controller {
 
 	
 	public function __construct()
@@ -15,7 +15,7 @@ class getModul extends CI_Controller {
 	
 	public function index()
 	{
-		$dataMod = $this->mod->getModul();
+		$dataMod = $this->mod->get();
 		echo json_encode($dataMod);
 	}
 
@@ -33,4 +33,4 @@ class getModul extends CI_Controller {
 
 }
 
-/* End of file getModul.php */
+/* End of file getModulController.php */
