@@ -31,6 +31,19 @@
  							<input class="form-control" name="link_modul" type="text" placeholder="Link Modul" required="true">
  						</div>
  					</div>
+					 <div class="col-md-12">
+ 							<div class="form-group">
+ 									<label for="">Mapel</label>
+									 <select name="id_mapel" id="" class="form-control">
+									 <option value="none">Pilih Jenis Mapel</option>
+									 <?php
+											foreach ($dataMapel as $data) {
+														echo "<option value='" . $data->id_mapel . "'>" . $data->nama_mapel . "</option>";
+											}
+									 ?>
+									 </select>
+							 </div>
+					 </div>
  					<div class="col-md-12">
  						<div class="form-group">
  							<textarea name="deskripsi" class="form-control" cols="30" rows="10" placeholder="Deskripsi" required="true"></textarea>

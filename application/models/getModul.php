@@ -46,6 +46,50 @@ class getModul extends CI_Model {
 		return $modul;
 	}
 
+	public function getMapelBIG()
+	{
+		$modul = $this->db
+			->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
+			->join('mapel', 'mapel.id_mapel = modul.id_mapel')
+			->where('nama_mapel', 'Bahasa Inggris')
+			->get('modul')->result();
+
+		return $modul;
+	}
+
+	public function getMapelBI()
+	{
+		$modul = $this->db
+			->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
+			->join('mapel', 'mapel.id_mapel = modul.id_mapel')
+			->where('nama_mapel', 'Bahasa Indonesia')
+			->get('modul')->result();
+
+		return $modul;
+	}
+
+	public function getMapelMAT()
+	{
+		$modul = $this->db
+			->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
+			->join('mapel', 'mapel.id_mapel = modul.id_mapel')
+			->where('nama_mapel', 'Matematika')
+			->get('modul')->result();
+
+		return $modul;
+	}
+
+	public function getMapelPAI()
+	{
+		$modul = $this->db
+			->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
+			->join('mapel', 'mapel.id_mapel = modul.id_mapel')
+			->where('nama_mapel', 'PAI')
+			->get('modul')->result();
+
+		return $modul;
+	}
+
 	public function searchModul($nama)
 	{
 		$result = $this->db

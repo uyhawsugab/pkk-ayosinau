@@ -57,6 +57,10 @@
 									</div>
 								</li>
 								<li class="nav-item">
+									<i class="material-icons" style="font-size:20px; color:white;">shopping_cart</i>
+									<sup id="cart" style="font-size:15px">0</sup>
+								</li>
+								<li class="nav-item">
 									<a class="nav-link" href="<?= base_url() ?>DashboardUser/modulPage">Belanja Lagi</a>
 								</li>
 							</ul>

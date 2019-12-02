@@ -45,7 +45,10 @@
 							<div class="card" style="width:100%">
 								<ul class="list-group list-group-flush">
 									<li class="list-group-item"><a href="#" onclick="lain()">Pemrograman</a></li>
-									<li class="list-group-item"><a href="#" onclick="berbayar()">Modul Berbayar</a></li>
+									<li class="list-group-item"><a href="#" onclick="big()">Bahasa Inggris</a></li>
+									<li class="list-group-item"><a href="#" onclick="bin()">Bahasa Indonesia</a></li>
+									<li class="list-group-item"><a href="#" onclick="mat()">Matematika</a></li>
+									<li class="list-group-item"><a href="#" onclick="pai()">Pendidikan Agama Islam</a></li>
 								</ul>
 							</div>
 						</div>
@@ -191,6 +194,104 @@
 			$("#showModul").html(content);
 		});
 	}
+
+	function bin() {
+		$.getJSON("<?= base_url() ?>getModulController/bin", function(data) {
+			let content = "";
+			$.each(data, function(key, dt) {
+				content +=
+					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+					'<div class="single_special_cource">' +
+					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
+					'<div class="special_cource_text">' +
+					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+					'<h4>' + dt['harga'] + '</h4>' +
+					'<a href="#">' +
+					'<h3>' + dt['nama_modul'] + '</h3>' +
+					'</a>' +
+					'<p>' + dt['deskripsi'] + '</p>' +
+					'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
+					'</div>' +
+					'</div>' +
+					'</div>';
+			});
+			$("#showModul").html(content);
+		});
+	}
+
+	function big() {
+		$.getJSON("<?= base_url() ?>getModulController/big", function(data) {
+			let content = "";
+			$.each(data, function(key, dt) {
+				content +=
+					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+					'<div class="single_special_cource">' +
+					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
+					'<div class="special_cource_text">' +
+					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+					'<h4>' + dt['harga'] + '</h4>' +
+					'<a href="#">' +
+					'<h3>' + dt['nama_modul'] + '</h3>' +
+					'</a>' +
+					'<p>' + dt['deskripsi'] + '</p>' +
+					'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
+					'</div>' +
+					'</div>' +
+					'</div>';
+			});
+			$("#showModul").html(content);
+		});
+	}
+
+	function mat() {
+		$.getJSON("<?= base_url() ?>getModulController/mat", function(data) {
+			let content = "";
+			$.each(data, function(key, dt) {
+				content +=
+					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+					'<div class="single_special_cource">' +
+					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
+					'<div class="special_cource_text">' +
+					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+					'<h4>' + dt['harga'] + '</h4>' +
+					'<a href="#">' +
+					'<h3>' + dt['nama_modul'] + '</h3>' +
+					'</a>' +
+					'<p>' + dt['deskripsi'] + '</p>' +
+					'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
+					'</div>' +
+					'</div>' +
+					'</div>';
+			});
+			$("#showModul").html(content);
+		});
+	}
+
+	function pai() {
+		$.getJSON("<?= base_url() ?>getModulController/pai", function(data) {
+			let content = "";
+			$.each(data, function(key, dt) {
+				content +=
+					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+					'<div class="single_special_cource">' +
+					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
+					'<div class="special_cource_text">' +
+					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+					'<h4>' + dt['harga'] + '</h4>' +
+					'<a href="#">' +
+					'<h3>' + dt['nama_modul'] + '</h3>' +
+					'</a>' +
+					'<p>' + dt['deskripsi'] + '</p>' +
+					'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
+					'</div>' +
+					'</div>' +
+					'</div>';
+			});
+			$("#showModul").html(content);
+		});
+	}
+
+
 
 	//Tampil Modul
 
