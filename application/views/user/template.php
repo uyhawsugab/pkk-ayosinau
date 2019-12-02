@@ -117,12 +117,12 @@
 	<!-- custom js -->
 	<script src="<?= base_url() ?>assets/user/js/custom.js"></script>
 	<script>
-		function loadCart() {
+		function loadTotalCart() {
 			$.getJSON("<?= base_url() ?>Transaksi/showCartItems", function(data) {
 				$("#cart").html(data['total_cart']);
 			});
 		}
-		loadCart();
+		loadTotalCart();
 	</script>
 </body>
 

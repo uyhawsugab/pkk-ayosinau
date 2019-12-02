@@ -64,6 +64,7 @@ class Transaksi extends CI_Controller {
 		$createNota = $this->modul->createNota();
 		if ($createNota) {
 			
+
 			$totalHarga = $this->cart->total();
 			$items = $this->cart->contents();
 			$dataNota = $this->modul->getLastNota();
@@ -94,7 +95,7 @@ class Transaksi extends CI_Controller {
 	public function uploadBuktiTransfer()
 	{
 		
-		$config['upload_path'] = './assets/buktiTransfer';
+		$config['upload_path'] = './assets/uploads/buktiTransfer';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size']  = '100000000000000';
 		$config['max_width']  = '1024000000000';

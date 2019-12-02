@@ -25,6 +25,7 @@
 	<!-- style CSS -->
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
 
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- jquery -->
 	<script src="<?= base_url() ?>assets/js/jquery-1.12.1.min.js"></script>
 </head>
@@ -55,6 +56,9 @@
 										<a class="dropdown-item" href="single-blog.html">Setting</a>
 										<a class="dropdown-item" href="<?= base_url() ?>loginUser/logout">logout</a>
 									</div>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="<?= base_url() ?>DashboardUser/modulPage">Belanja Lagi</a>
 								</li>
 							</ul>
 						</div>
@@ -101,13 +105,21 @@
 	<script src="<?= base_url() ?>assets/js/masonry.pkgd.js"></script>
 	<!-- particles js -->
 	<script src="<?= base_url() ?>assets/js/owl.carousel.min.js"></script>
-	<script src="<?= base_url() ?>assets/js/jquery.nice-select.min.js"></script>
+	<!-- <script src="<?= base_url() ?>assets/js/jquery.nice-select.min.js"></script> -->
 	<!-- swiper js -->
 	<script src="<?= base_url() ?>assets/js/slick.min.js"></script>
 	<script src="<?= base_url() ?>assets/js/jquery.counterup.min.js"></script>
 	<script src="<?= base_url() ?>assets/js/waypoints.min.js"></script>
 	<!-- custom js -->
 	<script src="<?= base_url() ?>assets/js/custom.js"></script>
+	<script>
+		function loadTotalCart() {
+			$.getJSON("<?= base_url() ?>Transaksi/showCartItems", function(data) {
+				$("#cart").html(data['total_cart']);
+			});
+		}
+		loadTotalCart();
+	</script>
 </body>
 
 </html>

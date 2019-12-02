@@ -55,15 +55,17 @@ class getModul extends CI_Model {
 	public function updateBuktiTransfer()
 	{
 		$data = array(
+			'metode' => $this->input->post('metode'),
 			'bukti' => $this->upload->data('file_name')
 		);
 
-		return $this->db->where('id_nota', $this->input->post('id_nota')->update('nota', $data));
+		return $this->db->where('id_nota', $this->input->post('id_nota'))->update('nota', $data);
 	}
 
 	public function updateTotalHarga($id)
 	{
 		$data = array(
+			
 			'grandtotal' => $this->cart->total()
 		);
 
