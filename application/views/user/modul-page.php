@@ -63,6 +63,9 @@
 								<li class="nav-item">
 									<a class="nav-link" href="<?= base_url() ?>DashboardUser/modulPage">Belanja Lagi</a>
 								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="<?=base_url()?>DashboardUser/modulKu">ModulKu</a>
+								</li>
 							</ul>
 						</div>
 					</nav>
@@ -80,6 +83,7 @@
 					<div class="breadcrumb_iner text-center">
 						<div class="breadcrumb_iner_item">
 							<h2>Selamat Datang</h2>
+							<strong id="pesan"></strong>
 							<p><?= $this->session->userdata('nama'); ?><span>/</span>Buy Modul</p>
 						</div>
 					</div>

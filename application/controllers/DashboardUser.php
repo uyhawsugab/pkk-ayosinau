@@ -19,6 +19,13 @@ class DashboardUser extends CI_Controller {
 		
 	}
 
+	public function modulKu()
+	{
+		$data['konten'] = 'user/modulku';
+		$this->load->view('user/modul-page', $data);
+		
+	}
+
 }
 
 /* End of file DashboardUser.php */

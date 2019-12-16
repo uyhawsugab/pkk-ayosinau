@@ -13,6 +13,7 @@ class Transaksi extends CI_Model {
 		return $data;
 	}
 
+
 	public function show($id)
 	{
 		$detail = $this->db->where('id_transaksi', $id)->get('transaksi')->row();

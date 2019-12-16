@@ -73,6 +73,17 @@ class Transaksi extends CI_Controller {
 					'qty' => $item['qty']
 				);
 			}
+
+			foreach ($items as $item) {
+				$array[] = array(
+					'id_user' => $this->session->userdata('id_user'),
+					'id_modul' => $item['id']
+				);
+			}
+
+			
+			$this->db->insert_batch('my_modul', $array);
+
 			$insertData = $this->db->insert_batch('transaksi', $object);
 			if ($insertData) {
 				$this->modul->updateTotalHarga($dataNota->id_nota);

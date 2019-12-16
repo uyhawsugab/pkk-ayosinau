@@ -14,6 +14,17 @@ class getModul extends CI_Model {
 		return $modul;
 	}
 
+	public function getModulKu()
+	{
+		$modul = $this->db
+		->join('modul', 'modul.id_modul = my_modul.id_modul')
+		->join('user', 'user.id_user = my_modul.id_user')
+		->where('nama', $this->session->userdata('nama'))
+		->get('my_modul')->result();
+
+		return $modul;
+	}
+
 	public function getGratis(){
 		$modul = $this->db
 			->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')

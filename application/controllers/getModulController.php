@@ -19,6 +19,12 @@ class getModulController extends CI_Controller {
 		echo json_encode($dataMod);
 	}
 
+	public function modulku()
+	{
+		$dataModul = $this->mod->getModulKu();
+		echo json_encode($dataModul);
+	}
+
 	public function search($namaModul = '')
 	{
 		$dataModul = $this->mod->searchModul($namaModul);
