@@ -101,10 +101,10 @@ class getModul extends CI_Model {
 		return $modul;
 	}
 
-	public function searchModul($nama)
+	public function searchModul($namaModul)
 	{
 		$result = $this->db
-		->like('nama_modul', $nama)
+		->like('nama_modul', $namaModul)
 		->join('jenis_modul', 'jenis_modul.id_jenis_modul = modul.id_jenis_modul')
 		->join('mapel', 'mapel.id_mapel = modul.id_mapel')
 		->get('modul')->result();

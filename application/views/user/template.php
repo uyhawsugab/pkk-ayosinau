@@ -5,7 +5,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Etrain</title>
+	<title>Halaman Utama</title>
 	<link rel="icon" href="<?= base_url() ?>assets/img/logoicon.png">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="<?= base_url() ?>assets/user/css/bootstrap.min.css">
@@ -41,30 +41,12 @@
 						<div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
 							<ul class="navbar-nav align-items-center">
 								<li class="nav-item active">
-									<a class="nav-link" href="index.html">Home</a>
+									<a class="nav-link" href="#">Home</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="about.html">About</a>
+									<a class="nav-link" href="#">Contact</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="<?= base_url() ?>DashboardUser/modulPage">Courses</a>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<?= $this->session->userdata('nama'); ?>
-									</a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<a class="dropdown-item" href="single-blog.html">Single blog</a>
-										<a class="dropdown-item" href="<?= base_url() ?>loginUser/logout">Logout</a>
-									</div>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="contact.html">Contact</a>
-								</li>
-								<li class="nav-item">
-									<i class="material-icons" style="font-size:20px">shopping_cart</i>
-									<sup id="cart" style="font-size:15px">0</sup>
-								</li>
+								
 							</ul>
 						</div>
 					</nav>

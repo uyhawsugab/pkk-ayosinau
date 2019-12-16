@@ -128,20 +128,20 @@
 			let content = "";
 			$.each(data, function(key, dt) {
 				content +=
-					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
-					'<div class="single_special_cource">' +
-					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
-					'<div class="special_cource_text">' +
-					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
-					'<h4>' + dt['harga'] + '</h4>' +
-					'<a href="#">' +
-					'<h3>' + dt['nama_modul'] + '</h3>' +
-					'</a>' +
-					'<p>' + dt['deskripsi'] + '</p>' +
-					'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
-					'</div>' +
-					'</div>' +
-					'</div>';
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-warning" href="'+dt['link_modul']+'" target="_blank">Download</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
 			});
 			$("#showModul").html(content);
 		});
@@ -175,130 +175,27 @@
 		$.getJSON("<?= base_url() ?>getModulController/lain", function(data) {
 			let content = "";
 			$.each(data, function(key, dt) {
+				if (dt['harga']=="gratis") 
+			{
 				content +=
-					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
-					'<div class="single_special_cource">' +
-					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
-					'<div class="special_cource_text">' +
-					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
-					'<h4>' + dt['harga'] + '</h4>' +
-					'<a href="#">' +
-					'<h3>' + dt['nama_modul'] + '</h3>' +
-					'</a>' +
-					'<p>' + dt['deskripsi'] + '</p>' +
-					'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
-					'</div>' +
-					'</div>' +
-					'</div>';
-			});
-			$("#showModul").html(content);
-		});
-	}
-
-	function bin() {
-		$.getJSON("<?= base_url() ?>getModulController/bin", function(data) {
-			let content = "";
-			$.each(data, function(key, dt) {
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-warning" href="'+dt['link_modul']+'" target="_blank">Download</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
+			else
+			{
 				content +=
-					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
-					'<div class="single_special_cource">' +
-					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
-					'<div class="special_cource_text">' +
-					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
-					'<h4>' + dt['harga'] + '</h4>' +
-					'<a href="#">' +
-					'<h3>' + dt['nama_modul'] + '</h3>' +
-					'</a>' +
-					'<p>' + dt['deskripsi'] + '</p>' +
-					'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
-					'</div>' +
-					'</div>' +
-					'</div>';
-			});
-			$("#showModul").html(content);
-		});
-	}
-
-	function big() {
-		$.getJSON("<?= base_url() ?>getModulController/big", function(data) {
-			let content = "";
-			$.each(data, function(key, dt) {
-				content +=
-					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
-					'<div class="single_special_cource">' +
-					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
-					'<div class="special_cource_text">' +
-					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
-					'<h4>' + dt['harga'] + '</h4>' +
-					'<a href="#">' +
-					'<h3>' + dt['nama_modul'] + '</h3>' +
-					'</a>' +
-					'<p>' + dt['deskripsi'] + '</p>' +
-					'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
-					'</div>' +
-					'</div>' +
-					'</div>';
-			});
-			$("#showModul").html(content);
-		});
-	}
-
-	function mat() {
-		$.getJSON("<?= base_url() ?>getModulController/mat", function(data) {
-			let content = "";
-			$.each(data, function(key, dt) {
-				content +=
-					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
-					'<div class="single_special_cource">' +
-					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
-					'<div class="special_cource_text">' +
-					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
-					'<h4>' + dt['harga'] + '</h4>' +
-					'<a href="#">' +
-					'<h3>' + dt['nama_modul'] + '</h3>' +
-					'</a>' +
-					'<p>' + dt['deskripsi'] + '</p>' +
-					'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
-					'</div>' +
-					'</div>' +
-					'</div>';
-			});
-			$("#showModul").html(content);
-		});
-	}
-
-	function pai() {
-		$.getJSON("<?= base_url() ?>getModulController/pai", function(data) {
-			let content = "";
-			$.each(data, function(key, dt) {
-				content +=
-					'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
-					'<div class="single_special_cource">' +
-					'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important;class="special_img">' +
-					'<div class="special_cource_text">' +
-					'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
-					'<h4>' + dt['harga'] + '</h4>' +
-					'<a href="#">' +
-					'<h3>' + dt['nama_modul'] + '</h3>' +
-					'</a>' +
-					'<p>' + dt['deskripsi'] + '</p>' +
-					'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
-					'</div>' +
-					'</div>' +
-					'</div>';
-			});
-			$("#showModul").html(content);
-		});
-	}
-
-
-
-	//Tampil Modul
-
-	$.getJSON("<?= base_url() ?>getModulController", function(data) {
-		let content = "";
-		$.each(data, function(key, dt) {
-			content +=
 				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
 				'<div class="single_special_cource">' +
 				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
@@ -313,6 +210,235 @@
 				'</div>' +
 				'</div>' +
 				'</div>';
+			}
+			});
+			$("#showModul").html(content);
+		});
+	}
+
+	function bin() {
+		$.getJSON("<?= base_url() ?>getModulController/bin", function(data) {
+			let content = "";
+			$.each(data, function(key, dt) {
+				if (dt['harga']=="gratis") 
+			{
+				content +=
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-warning" href="'+dt['link_modul']+'" target="_blank">Download</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
+			else
+			{
+				content +=
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
+			});
+			$("#showModul").html(content);
+		});
+	}
+
+	function big() {
+		$.getJSON("<?= base_url() ?>getModulController/big", function(data) {
+			let content = "";
+			$.each(data, function(key, dt) {
+				if (dt['harga']=="gratis") 
+			{
+				content +=
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-warning" href="'+dt['link_modul']+'" target="_blank">Download</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
+			else
+			{
+				content +=
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
+			});
+			$("#showModul").html(content);
+		});
+	}
+
+	function mat() {
+		$.getJSON("<?= base_url() ?>getModulController/mat", function(data) {
+			let content = "";
+			$.each(data, function(key, dt) {
+				if (dt['harga']=="gratis") 
+			{
+				content +=
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-warning" href="'+dt['link_modul']+'" target="_blank">Download</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
+			else
+			{
+				content +=
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
+			});
+			$("#showModul").html(content);
+		});
+	}
+
+	function pai() {
+		$.getJSON("<?= base_url() ?>getModulController/pai", function(data) {
+			let content = "";
+			$.each(data, function(key, dt) {
+				if (dt['harga']=="gratis") 
+			{
+				content +=
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-warning" href="'+dt['link_modul']+'" target="_blank">Download</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
+			else
+			{
+				content +=
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
+			});
+			$("#showModul").html(content);
+		});
+	}
+
+
+
+	//Tampil Modul
+
+	$.getJSON("<?= base_url() ?>getModulController", function(data) {
+		let content = "";
+		$.each(data, function(key, dt) {
+			if (dt['harga']=="gratis") 
+			{
+				content +=
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-warning" href="'+dt['link_modul']+'" target="_blank">Download</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
+			else
+			{
+				content +=
+				'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left">' +
+				'<div class="single_special_cource">' +
+				'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '" alt="" style="width:100% !important;height:300px !important; "class="special_img">' +
+				'<div class="special_cource_text">' +
+				'<a href="#" class="btn_4">' + dt['nama_mapel'] + '</a>' +
+				'<h4>' + dt['harga'] + '</h4>' +
+				'<a href="#">' +
+				'<h3>' + dt['nama_modul'] + '</h3>' +
+				'</a>' +
+				'<p>' + dt['deskripsi'] + '</p>' +
+				'<a class="btn btn-primary" href="#detail" data-toggle="modal" onclick="tmDet(' + dt['id_modul'] + ')">Beli</a>' +
+				'</div>' +
+				'</div>' +
+				'</div>';
+			}
 
 		});
 		$("#showModul").html(content);
@@ -325,7 +451,7 @@
 				let content = "";
 				$.each(data, function(key, dt) {
 					content +=
-						'<div class="col-sm-6 col-lg-4" style="margin-top:20px;">' +
+						'<div class="col-sm-6 col-lg-4" style="margin-top:20px; float:left"">' +
 						'<div class="single_special_cource">' +
 						'<img src="<?= base_url('assets/uploads/modul/') ?>' + dt['gambar'] + '"  alt="" style="width:100% !important;height:300px !important; class="special_img">' +
 						'<div class="special_cource_text">' +
