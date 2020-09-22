@@ -8,7 +8,11 @@
 						<h5>SIAPKAN MASA DEPANMU</h5>
 						<h1>Buatlah Masa Depanmu Lebih Baik</h1>
 						<p>Fitur yang ditunggu-tunggu kini sudah hadir! Gunakan AyoSinau.com di PC atau laptop kamu. Belajar kini lebih nyaman dengan layar yang lebih besar</p>
+						<?php if($this->session->userdata('login') == TRUE) : ?>
+						<a href="<?=base_url()?>DashboardUser/modulPage" class="btn_1">Get Started </a>
+						<?php else : ?>
 						<a href="<?=base_url()?>loginUser" class="btn_1">Get Started </a>
+						<?php endif ; ?>
 					</div>
 				</div>
 			</div>
